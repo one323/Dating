@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Vibe - Connect Today!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff6b6b; /* Energetic Red */
+            --secondary-color: #48dbfb; /* Vibrant Blue */
+            --dark-bg: #1a1a2e; /* Dark background for modern look */
+            --light-bg: #e0e0e0;
+            --text-color: #333;
+            --white-text: #ffffff;
+            --gray-text: #cccccc;
+            --font-montserrat: 'Montserrat', sans-serif;
+            --font-poppins: 'Poppins', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-poppins);
+            line-height: 1.6;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            text-align: center;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        /* Header/Hero Section */
+        .hero {
+            position: relative;
+            height: 85vh; /* Taller hero section */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white-text);
+            text-align: center;
+            background: url('https://via.placeholder.com/1920x1080/6a5acd/ffffff?text=Stylish+Couple') no-repeat center center/cover; /* Replace with a high-quality, stylish background image */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-montserrat);
+            font-size: 4.5em; /* Larger, bolder heading */
+            margin-bottom: 25px;
+            color: var(--white-text);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-family: var(--font-poppins);
+            font-size: 1.4em;
+            margin-bottom: 40px;
+            color: var(--gray-text);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white-text);
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.4em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            background-color: #ff4757; /* Slightly darker red */
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(255, 107, 107, 0.6);
+        }
+
+        .disclaimer {
+            margin-top: 30px;
+            font-size: 0.95em;
+            opacity: 0.9;
+            color: var(--gray-text);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px 20px;
+            background-color: var(--dark-bg);
+            color: var(--white-text);
+        }
+
+        .features-section h2 {
+            font-family: var(--font-montserrat);
+            font-size: 3em;
+            margin-bottom: 60px;
+            color: var(--secondary-color);
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background-color: rgba(255, 255, 255, 0.08); /* Slightly transparent white */
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .feature-card .icon-wrapper {
+            margin-bottom: 25px;
+            display: inline-block; /* to center the image if needed */
+        }
+
+        .feature-card img {
+            width: 70px; /* Larger icons */
+            height: 70px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            padding: 10px;
+            border: 3px solid var(--secondary-color);
+            box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
+        }
+
+        .feature-card h3 {
+            font-family: var(--font-montserrat);
+            font-size: 1.8em;
+            color: var(--white-text);
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            font-size: 1.1em;
+            color: var(--gray-text);
+        }
+
+        /* Call to Action Bottom Section */
+        .call-to-action {
+            padding: 90px 20px;
+            background: linear-gradient(45deg, var(--primary-color), #ff9a8d); /* Gradient background */
+            color: var(--white-text);
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .call-to-action h2 {
+            font-family: var(--font-montserrat);
+            font-size: 3.8em;
+            margin-bottom: 25px;
+            color: var(--white-text);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .call-to-action p {
+            font-family: var(--font-poppins);
+            font-size: 1.6em;
+            margin-bottom: 50px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-button.secondary-cta {
+            background-color: var(--secondary-color);
+            box-shadow: 0 8px 25px rgba(72, 219, 251, 0.4);
+        }
+
+        .cta-button.secondary-cta:hover {
+            background-color: #00b8d4; /* Darker vibrant blue */
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(72, 219, 251, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--gray-text);
+            padding: 30px 20px;
+            font-size: 0.9em;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        footer a {
+            color: var(--secondary-color);
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3.5em;
+            }
+            .hero-content p {
+                font-size: 1.2em;
+            }
+            .features-section h2, .call-to-action h2 {
+                font-size: 2.5em;
+            }
+            .feature-card h3 {
+                font-size: 1.5em;
+            }
+            .feature-card p {
+                font-size: 1em;
+            }
+            .call-to-action p {
+                font-size: 1.3em;
+            }
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 75vh;
+            }
+            .hero-content h1 {
+                font-size: 2.8em;
+            }
+            .hero-content p {
+                font-size: 1.1em;
+                margin-bottom: 30px;
+            }
+            .features-section h2, .call-to-action h2 {
+                font-size: 2em;
+                margin-bottom: 40px;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr; /* Stack columns on smaller screens */
+            }
+            .feature-card {
+                padding: 25px;
+            }
+            .feature-card img {
+                width: 60px;
+                height: 60px;
+            }
+            .call-to-action p {
+                font-size: 1.1em;
+                margin-bottom: 40px;
+            }
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 65vh;
+            }
+            .hero-content h1 {
+                font-size: 2.2em;
+            }
+            .hero-content p {
+                font-size: 0.95em;
+                margin-bottom: 25px;
+            }
+            .features-section h2, .call-to-action h2 {
+                font-size: 1.8em;
+                margin-bottom: 30px;
+            }
+            .cta-button {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+            .disclaimer {
+                font-size: 0.8em;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>Ready to Meet Your Match?</h1>
+            <p>Discover exciting connections and unforgettable moments. Your next adventure starts here!</p>
+            <a href="#" class="cta-button">Unleash Your Potential!</a>
+            <p class="disclaimer">18+ Only: Content intended for mature audiences.</p>
+        </div>
+    </header>
+
+    <section class="features-section">
+        <h2>Why Choose Us?</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="icon-wrapper">
+                    <img src="https://via.placeholder.com/60x60?text=Match" alt="Smart Matching">
+                </div>
+                <h3>Smart Matching</h3>
+                <p>Our algorithm connects you with compatible singles who share your interests and goals.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-wrapper">
+                    <img src="https://via.placeholder.com/60x60?text=Secure" alt="Secure & Private">
+                </div>
+                <h3>Secure & Private</h3>
+                <p>Your privacy is our priority. Connect with confidence in a safe and discreet environment.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-wrapper">
+                    <img src="https://via.placeholder.com/60x60?text=Vibrant" alt="Vibrant Community">
+                </div>
+                <h3>Vibrant Community</h3>
+                <p>Join thousands of energetic members ready to mingle and make new connections.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="call-to-action">
+        <h2>Don't Miss Out!</h2>
+        <p>Your perfect connection is just a click away. Take the leap and transform your social life.</p>
+        <a href="#" class="cta-button secondary-cta">Dive In Now!</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Connect Today. All rights reserved. <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // هذا الملف لـ JavaScript.
+            // لصفحة هبوط بسيطة مثل هذه، قد لا تحتاج إلى الكثير من JavaScript.
+            // ولكن يمكنك إضافة تأثيرات بصرية، أو منطق تتبع، أو أي تفاعل هنا.
+
+            console.log("Welcome to the Connect Today landing page!");
+
+            // مثال بسيط: إضافة تأثير عند النقر على زر CTA
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    // يمكنك إضافة كود لتتبع النقرات هنا قبل التوجيه
+                    // console.log('CTA button clicked!');
+                    // e.preventDefault(); // إلغاء السلوك الافتراضي إذا كنت تريد معالجة الرابط بطريقة خاصة
+                    // window.location.href = button.href; // ثم التوجيه يدوياً
+                });
+            });
+        });
+    </script>
+</body>
+</html>
